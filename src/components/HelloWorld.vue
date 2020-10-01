@@ -1,5 +1,15 @@
 <template>
   <div class="hello">
+    <b-button
+      size="lg"
+      variant="outline-primary">
+      Bootstrap Button
+    </b-button>
+    <b-button
+      size="lg"
+      variant="danger">
+      Bootstrap Button
+    </b-button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
