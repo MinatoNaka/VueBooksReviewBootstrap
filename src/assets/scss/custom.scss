@@ -1,4 +1,13 @@
-$primary: green;
+$theme-colors: (
+  "c-stroke": #094067,
+  "c-main": #fffffe,
+  "c-highlight": #3da9fc,
+  "c-secondary": #90b4ce,
+  "c-tertiary": #ef4565,
+  "c-paragraph": #5f6c7b,
+);
+
+$body-bg: #fffffe;
 
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap-vue/src/index.scss";
