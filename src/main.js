@@ -12,6 +12,8 @@ Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 
+Vue.prototype.$http = (url, opts) => fetch(url, opts)
+
 new Vue({
   router,
   store,
