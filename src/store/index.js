@@ -1,21 +1,43 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { UPDATE_CURRENT } from "./mutation-types";
+import { UPDATE_CURRENT, UPDATE_BOOK } from "./mutation-types";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    books: [],
     current: null,
+  },
+  getters: {
+    getBookById(state) {
+      return (id) => {
+        return state.books.find((book) => book.id === id);
+      };
+    },
+    current(state) {
+      return state.current;
+    },
   },
   mutations: {
     [UPDATE_CURRENT](state, payload) {
       state.current = payload;
     },
+    [UPDATE_BOOK](state, payload) {
+      let b = this.getters.getBookById(payload.id);
+      if (b) {
+        Object.assign(b, payload);
+      } else {
+        state.books.push(payload);
+      }
+    },
   },
   actions: {
     [UPDATE_CURRENT]({ commit }, payload) {
       commit(UPDATE_CURRENT, payload);
+    },
+    [UPDATE_BOOK]({ commit }, payload) {
+      commit(UPDATE_BOOK, payload);
     },
   },
 });
