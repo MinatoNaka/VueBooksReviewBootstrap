@@ -10,9 +10,18 @@ export default new Vuex.Store({
     current: null,
   },
   getters: {
+    bookCount(state) {
+      return state.books.length;
+    },
     getBookById(state) {
       return (id) => {
         return state.books.find((book) => book.id === id);
+      };
+    },
+    getRangeByPage(state) {
+      return (page) => {
+        const SIZE = 3;
+        return state.books.slice((page - 1) * SIZE, (page - 1) * SIZE + SIZE);
       };
     },
     current(state) {
